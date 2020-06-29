@@ -181,3 +181,9 @@ grep "^34.98.100.25" apache_access.log
 
 ![](https://github.com/hungviet99/Security-Log-Analysis/blob/master/Pictures/logapache12.png)
 
+
+```
+grep "^34.98.100.25 " apache_access.log | awk '{print $7, $9}'
+```
+
+Hãy để ý đến dòng `/~james-basney/ 400` , có thể từ lỗi yêu cầu xấu, hacker đã lấy được tên người dùng có trong hệ thống và sử dụng tên người dùng để Brute force vào hệ thống  của bạn. 
