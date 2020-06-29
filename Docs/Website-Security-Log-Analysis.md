@@ -57,7 +57,7 @@ grep ""http://findmeavuln.com/lookup/314133742/https://bluewaters.ncsa.illinois.
 
 ![](https://github.com/hungviet99/Security-Log-Analysis/blob/master/Pictures/logapache4.png)
 
-Tiếp tục xem các log chứa các trang còn lại, ta có thể thấy chúng đều referer đến 1 trang web. Từ đây ta có thể biết được có thể trang đã bị xâm phạm theo cách nào đó. 
+Tiếp tục xem các log chứa các trang còn lại, ta có thể thấy chúng sử dụng nhiều trang web để refer đến nhưng tất cả đều trỏ đến cùng 1 đường dẫn. Từ đây ta có thể biết được có thể trang đã bị xâm phạm theo cách nào đó. 
 
 ## 2. Truy cập trực tiếp mà không referer từ trang nào đến. 
 
@@ -119,6 +119,8 @@ Mình sẽ thử lọc ra các user-agent của kết quả trên :
 ```
 grep "/assets/php/directory/list.php" apache_access.log | head | awk -F '"' '{print $6}'
 ```
+
+![](https://github.com/hungviet99/Security-Log-Analysis/blob/master/Pictures/logapache13.png)
 
 sqlmap là 1 công cụ while-hat để điều tra xem các trang web có dễ bị tổn thương bị tấn công SQL injection. Nhưng bất cứ ai cũng có thể sử dụng nó cho mục đích bất chính. Nhưng đối với đoạn log này có vẻ như họ quên thay đổi user-agent. 
 
